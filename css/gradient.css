@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Change in your project */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #222;
+}
+body::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    background: linear-gradient(0deg,#0CCDA3, #C973FF);
+}
+.circle{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(225, 225, 225, 0.05);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff5,
+    0 0 0 20px #333,
+    0 0 0 22px #fff,
+    0 0 50px #fff,
+    0 0 450px #fff;
+}
+.circle::before{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 170px;
+    border-radius: 2px;
+    transform-origin: bottom;
+    background: linear-gradient(0deg,transparent, #fff);
+    animation: animateClock 20s steps(60) infinite;
+}
+.circle::after{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 190px;
+    border-radius: 2px;
+    transform-origin: bottom;
+    background: linear-gradient(0deg,transparent, #fff);
+    animation: animateClock 120s steps(60) infinite;
+}
+ul li span{
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-shadow: 0 0 15px #fff,
+    0 0 35px #fff,
+    0 0 75px #fff,
+    0 0 150px #fff;
+    font-family: Edu SA Beginner;
+}
+ul li{
+    position: absolute;
+    list-style: none;
+    top: 10px;
+    transform: rotate(calc(30deg * var(--i)));
+    transform-origin: 0 240px;
+}
+@keyframes animateClock{
+    0%{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
